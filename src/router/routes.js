@@ -9,16 +9,14 @@ import ExpandInformation from '../views/personal/ExpandInformation'; // 扩展�
 import PRecord from '../views/personal/Record'; // 变更记录
 import PApply from '../views/personal/Apply'; // 续聘申请
 import PAssessment from '../views/personal/Assessment'; // 考核记录
-import EArchives from '../views/expert/Archives'; // 专家档案审核
-import EInformation from '../views/expert/Information'; // 专家信息变更审核
+import IIndex from '../views/integral/Index'; // 积分记录
+import EInformation from '../views/expert/ArchivesInformation'; // 专家信息变更审核
 import EMaintain from '../views/expert/Maintain'; // 专家信息维护
 import RRecruit from '../views/recruit/Recruit'; // 续聘资格配置
 import RExamine from '../views/recruit/Examine'; // 续聘信息审核
-import IIndex from '../views/integral/Index'; // 专家动态积分规则
 import ExArchives from '../views/examination/Archives'; // 专家动态积分规则
 import EBank from '../views/examination/Bank'; // 题库管理
 import EPaper from '../views/examination/Paper'; // 阅卷管理
-import EBatch from '../views/examination/Batch'; // 考试批次
 import EResult from '../views/examination/Result'; // 考试结果
 import TData from '../views/train/Data'; // 培训资料
 import TBatch from '../views/train/Batch'; // 培训批次
@@ -28,6 +26,8 @@ import SAccount from '../views/system/Account'; // 账号管理
 import SDepartment from '../views/system/Department'; // 部门管理
 import SGroup from '../views/system/Group'; // 用户组管理
 import SJurisdiction from '../views/system/Jurisdiction'; // 权限管理
+import EBatch from '../views/system/Batch'; // 考核批次
+import SPointRule from '../views/system/PointRule.js'; // 积分管理
 
 
 import Error404 from '../views/error/Error404'; // 404
@@ -47,16 +47,14 @@ export const routes = [
 	{ path: '/personal/record', component: PRecord },
 	{ path: '/personal/apply', component: PApply },
 	{ path: '/personal/assessment', component: PAssessment },
-	{ path: '/expert/archives', component: EArchives },
-	{ path: '/expert/information', component: EInformation },
+	{ path: '/personal/integral', component: IIndex },
+	{ path: '/expert/archivesInformation', component: EInformation },
 	{ path: '/expert/maintain', component: EMaintain },
 	{ path: '/recruit/recruit', component: RRecruit },
 	{ path: '/recruit/examine', component: RExamine },
-	{ path: '/integral', component: IIndex },
 	{ path: '/examination/archives', component: ExArchives },
 	{ path: '/examination/bank', component: EBank },
 	{ path: '/examination/paper', component: EPaper },
-	{ path: '/examination/batch', component: EBatch },
 	{ path: '/examination/result', component: EResult },
 	{ path: '/train/data', component: TData },
 	{ path: '/train/batch', component: TBatch },
@@ -66,6 +64,8 @@ export const routes = [
 	{ path: '/system/department', component: SDepartment },
 	{ path: '/system/group', component: SGroup },
 	{ path: '/system/jurisdiction', component: SJurisdiction },
+	{ path: '/system/batch', component: EBatch },
+	{ path: '/system/pointRule', component: SPointRule },
 
 	{ path: '/permission/toggle', component: Toggle, permission:1 },
 	{ path: '/permission/intercept', component: Intercept },

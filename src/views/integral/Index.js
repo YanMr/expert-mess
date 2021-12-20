@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Integral = () => <div className="shadow-radius">专家动态积分规则</div>;
+const Integral = () => <div className="shadow-radius">积分记录</div>;
 
 export default Integral;
