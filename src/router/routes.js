@@ -5,6 +5,7 @@
 
 import Dashboard from '../views/dashboard/Index'; // 首页
 import PInformation from '../views/personal/Information'; // 基本信息
+import ExpandInformation from '../views/personal/ExpandInformation'; // 扩展信息
 import PRecord from '../views/personal/Record'; // 变更记录
 import PApply from '../views/personal/Apply'; // 续聘申请
 import PAssessment from '../views/personal/Assessment'; // 考核记录
@@ -16,7 +17,7 @@ import RExamine from '../views/recruit/Examine'; // 续聘信息审核
 import IIndex from '../views/integral/Index'; // 专家动态积分规则
 import ExArchives from '../views/examination/Archives'; // 专家动态积分规则
 import EBank from '../views/examination/Bank'; // 题库管理
-import EPaper from '../views/examination/Paper'; // 试卷管理
+import EPaper from '../views/examination/Paper'; // 阅卷管理
 import EBatch from '../views/examination/Batch'; // 考试批次
 import EResult from '../views/examination/Result'; // 考试结果
 import TData from '../views/train/Data'; // 培训资料
@@ -42,6 +43,7 @@ import Toggle from '../views/permission/Toggle'; // 权限切换
 export const routes = [
 	{ path: '/dashboard', component: Dashboard },
 	{ path: '/personal/information', component: PInformation },
+	{ path: '/personal/expandInformation', component: ExpandInformation },
 	{ path: '/personal/record', component: PRecord },
 	{ path: '/personal/apply', component: PApply },
 	{ path: '/personal/assessment', component: PAssessment },

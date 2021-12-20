@@ -18,6 +18,10 @@ export const menus = [
 				title: '基本信息',
 			},
 			{
+				path: '/personal/expandInformation',
+				title: '扩展信息',
+			},
+			{
 				path: '/personal/record',
 				title: '变更记录',
 			},
@@ -85,7 +89,7 @@ export const menus = [
 			},
 			{
 				path: '/examination/paper',
-				title: '试卷管理'
+				title: '阅卷管理'
 			},
 			{
 				path: '/examination/batch',
