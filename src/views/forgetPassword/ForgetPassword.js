@@ -78,8 +78,8 @@ class ForgetPassword extends Component {
   }
 
   onFinish = (values) => {
-      console.log('Success:', values);
-      console.log('formRef:', this.formRef);
+    console.log('Success:', values);
+    console.log('formRef:', this.formRef);
   };
 
   onFinishFailed = (errorInfo) => {
@@ -100,7 +100,6 @@ class ForgetPassword extends Component {
           onFinishFailed={this.onFinishFailed}
           autoComplete="off"
         >
-
           <FormItem label="新密码" name="password" rules={[passwordRules]}>
             <Input className="input" placeholder="请输入需要重置的新密码" />
           </FormItem>
@@ -132,7 +131,7 @@ class ForgetPassword extends Component {
           <div className="resetsumit">
             <div className="btn">
               <FormItem>
-                <Button type="primary" size="large" onClick={this.goLogin}>
+                <Button type="default" size="large" onClick={this.goLogin}>
                   去登录
                 </Button>
               </FormItem>
@@ -153,6 +152,7 @@ class ForgetPassword extends Component {
     return (
       <div className="box_forget">
         <div className="leftbox">
+          <div className="log">重置密码</div>
           <div className="zhezhao"></div>
           <div className="leftimg">
             <img className="logo2"

@@ -42,6 +42,10 @@ class Register extends Component {
     }
   }
 
+  goLogin = () => {
+    this.props.history.push('/login');
+  }
+  
   sendVerCode() {
     let maxTime = 30;
 
@@ -149,8 +153,8 @@ class Register extends Component {
           <div className="resetsumit">
             <div className="btn">
               <FormItem>
-                <Button type="default" size="large" htmlType="reset">
-                  重置
+                <Button type="default" size="large" onClick={this.goLogin}>
+                  去登录
                 </Button>
               </FormItem>
             </div>
@@ -171,7 +175,7 @@ class Register extends Component {
       <div>
         <div className="box">
           <div className="leftbox">
-            <div className="logo"></div>
+            <div className="log">新用户注册</div>
             <div className="zhezhao"></div>
             <div className="leftimg">
               <img className="logo2"
