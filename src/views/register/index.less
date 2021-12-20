@@ -1,0 +1,174 @@
+@import '~antd/lib/style/themes/default.less';
+
+body {
+	background: #FAFAFA;
+}
+
+.box {
+	width: 992px;
+	height: 584px;
+	background: #FFFFFF;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	box-shadow: 0px 1px 45px 8px #EFEFEF;
+	border-radius: 4px;
+
+	.leftbox {
+		width: 476px;
+		height: 584px;
+		position: relative;
+		float: left;
+
+		.logo {
+			width: 125px;
+			height: 39px;
+			margin-left: 56px;
+			margin-top: 48px;
+		}
+
+		.zhezhao {
+			width: 372px;
+			height: 304px;
+			position: absolute;
+			top: 140px;
+			left: 59px;
+			z-index: 100;
+			background: rgba(0, 0, 0, 0);
+		}
+
+		.leftimg {
+			width: 372px;
+			height: 328px;
+			margin-left: 56px;
+			margin-top: 51px;
+
+			.logo2 {
+				width: 372px;
+				height: 328px;
+			}
+		}
+	}
+
+	.rightboxre {
+		width: 515px;
+		border-left: 1px solid #E5E5E5;
+		margin-top: 48px;
+		height: 488px;
+		padding-left: 20px;
+		position: relative;
+		float: left;
+
+		.formstep {
+			float: left;
+			padding-top: 10px;
+		}
+
+		.formstep {
+			.ant-form-item-label {
+				height: 48px;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+			}
+		}
+
+		.input {
+			width: 330px;
+			height: 48px;
+		}
+
+		.inputverify {
+			width: 185px;
+			height: 48px;
+			float: left;
+		}
+
+		.ButtonDefault {
+			width: 128px;
+			height: 48px;
+			border-radius: 4px;
+			border: 1px solid #CCECFF;
+
+			font-size: 16px;
+			font-family: PingFangSC-Regular, PingFang SC;
+			font-weight: 400;
+			color: #1B9AEE;
+			line-height: 16px;
+
+			&:hover {
+				width: 128px;
+				height: 48px;
+				background: #F2FBFF;
+				border-radius: 4px;
+				border: 1px solid #CCECFF;
+			}
+
+			&:active {
+				width: 128px;
+				height: 48px;
+				background: #CCECFF;
+				border-radius: 4px;
+				border: 1px solid #87D2FF;
+			}
+		}
+
+		.buttonCode {
+			width: 128px;
+			height: 48px;
+			background: #F7F7F7;
+			border-radius: 4px;
+			border: 1px solid #D9D9D9;
+
+			font-size: 14px;
+			font-family: PingFangSC-Regular, PingFang SC;
+			font-weight: 400;
+			color: #BFBFBF;
+			line-height: 20px;
+		}
+
+		.yanzhengma {
+			width: 416px;
+			height: 48px;
+			margin-bottom: 18px;
+			position: relative;
+
+			.getcode {
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+
+			.ant-form-explain {
+				width: 204px;
+				height: 14px;
+				line-height: 14px;
+				margin-top: 8px;
+				color: #E62412;
+				font-size: 14px;
+				margin-bottom: 0px;
+				padding-top: 8px;
+			}
+		}
+
+		.resetsumit {
+			display: flex;
+			padding-top: 8px;
+
+			.btn {
+				flex: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				button {
+					width: 120px;
+					margin-left: 80px;
+				}
+			}
+		}
+	}
+}

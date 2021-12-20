@@ -18,6 +18,10 @@ export const menus = [
 				title: '基本信息',
 			},
 			{
+				path: '/personal/expandInformation',
+				title: '扩展信息',
+			},
+			{
 				path: '/personal/record',
 				title: '变更记录',
 			},
@@ -28,6 +32,10 @@ export const menus = [
 			{
 				path: '/personal/assessment',
 				title: '考核记录',
+			},
+			{
+				path: '/personal/integral',
+				title: '积分记录',
 			}
 		]
 	},
@@ -37,12 +45,8 @@ export const menus = [
 		icon: 'icon-zhuanjia',
 		children: [
 			{
-				path: '/expert/archives',
-				title: '专家档案审核',
-			},
-			{
-				path: '/expert/information',
-				title: '专家信息变更审核',
+				path: '/expert/archivesInformation',
+				title: '审核信息',
 			},
 			{
 				path: '/expert/maintain',
@@ -66,18 +70,13 @@ export const menus = [
 		]
 	},
 	{
-		path: '/integral',
-		title: '专家动态积分规则',
-		icon: 'icon-jifen'
-	},
-	{
 		path: '/examination',
 		title: '在线考试',
 		icon: 'icon-kaoshi',
 		children: [
 			{
 				path: '/examination/archives',
-				title: '题型档案',
+				title: '试卷配置',
 			},
 			{
 				path: '/examination/bank',
@@ -85,11 +84,7 @@ export const menus = [
 			},
 			{
 				path: '/examination/paper',
-				title: '试卷管理'
-			},
-			{
-				path: '/examination/batch',
-				title: '考试批次'
+				title: '阅卷管理'
 			},
 			{
 				path: '/examination/result',
@@ -140,6 +135,14 @@ export const menus = [
 			{
 				path: '/system/jurisdiction',
 				title: '权限管理'
+			},
+			{
+				path: '/system/batch',
+				title: '考核批次'
+			},
+			{
+				path: '/system/pointRule',
+				title: '积分管理'
 			}
 		]
 	},
