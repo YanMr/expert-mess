@@ -4,6 +4,7 @@
 
 
 import Dashboard from '../views/dashboard/Index'; // 首页
+import ForgetPassword from '../views/forgetPassword/ForgetPassword'; // 首页
 import PInformation from '../views/personal/Information'; // 基本信息
 import ExpandInformation from '../views/personal/ExpandInformation'; // 扩展信息
 import PRecord from '../views/personal/Record'; // 变更记录
@@ -42,6 +43,7 @@ import Toggle from '../views/permission/Toggle'; // 权限切换
 
 export const routes = [
 	{ path: '/dashboard', component: Dashboard },
+	{ path: '/forgetPassword', component: ForgetPassword },
 	{ path: '/personal/information', component: PInformation },
 	{ path: '/personal/expandInformation', component: ExpandInformation },
 	{ path: '/personal/record', component: PRecord },
