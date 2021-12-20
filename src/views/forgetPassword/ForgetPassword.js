@@ -5,12 +5,11 @@ import './index.less';
 
 const FormItem = Form.Item;
 
-const nameRules = { required: true, message: "请输入姓名" };
 const passwordRules = { required: true, message: "请输入密码" };
-const surepasswordRules = { required: true, message: "请输入正确密码" };
 const phoneRules = { required: true, message: "请输入手机号" };
 const yzmRules = { required: true, message: "请输入验证码" };
-class Register extends Component {
+
+class ForgetPassword extends Component {
   formRef = React.createRef();
   constructor(props) {
     super(props);
@@ -35,17 +34,10 @@ class Register extends Component {
     }
   }
 
-  surePassword() {
-    const values = this.formRef.current.getFieldsValue()
-    if (values.password !== values.surepassword) {
-      message.error("两次输入的密码不相同，请重新输入！！！")
-    }
-  }
-
   goLogin = () => {
     this.props.history.push('/login');
   }
-  
+
   sendVerCode() {
     let maxTime = 30;
 
@@ -86,13 +78,8 @@ class Register extends Component {
   }
 
   onFinish = (values) => {
-    if (values.password !== values.surepassword) {
-      message.error("两次输入的密码不相同，请重新输入！！！")
-      return
-    } else {
-      console.log('Success:', values);
-      console.log('formRef:', this.formRef);
-    }
+    console.log('Success:', values);
+    console.log('formRef:', this.formRef);
   };
 
   onFinishFailed = (errorInfo) => {
@@ -113,17 +100,8 @@ class Register extends Component {
           onFinishFailed={this.onFinishFailed}
           autoComplete="off"
         >
-
-          <FormItem label="用户名" name="username" rules={[nameRules]}>
-            <Input className="input" placeholder="请输入用户名" />
-          </FormItem>
-
-          <FormItem label="密码" name="password" rules={[passwordRules]}>
-            <Input className="input" placeholder="请输入密码" />
-          </FormItem>
-
-          <FormItem label="确认密码" name="surepassword" rules={[surepasswordRules]}>
-            <Input className="input" placeholder="请再次输入密码" onBlur={this.surePassword.bind(this)} />
+          <FormItem label="新密码" name="password" rules={[passwordRules]}>
+            <Input className="input" placeholder="请输入需要重置的新密码" />
           </FormItem>
 
           <FormItem label="手机号" name="phonenumber" rules={[phoneRules]}>
@@ -162,7 +140,7 @@ class Register extends Component {
             <div className="btn">
               <FormItem>
                 <Button type="primary" size="large" htmlType="submit">
-                  注册
+                  重置密码
                 </Button>
               </FormItem>
             </div>
@@ -172,22 +150,20 @@ class Register extends Component {
     )
 
     return (
-      <div>
-        <div className="box">
-          <div className="leftbox">
-            <div className="log">新用户注册</div>
-            <div className="zhezhao"></div>
-            <div className="leftimg">
-              <img className="logo2"
-                src={top} alt=''
-              />
-            </div>
+      <div className="box_forget">
+        <div className="leftbox">
+          <div className="log">重置密码</div>
+          <div className="zhezhao"></div>
+          <div className="leftimg">
+            <img className="logo2"
+              src={top} alt=''
+            />
           </div>
-          <div className="rightboxre">
-            <div className="stepnew"></div>
-            <div className="formstep">
-              {renderEmailAndPsw}
-            </div>
+        </div>
+        <div className="rightboxre">
+          <div className="stepnew"></div>
+          <div className="formstep">
+            {renderEmailAndPsw}
           </div>
         </div>
       </div>
@@ -195,4 +171,4 @@ class Register extends Component {
   }
 }
 
-export default Register
+export default ForgetPassword;
