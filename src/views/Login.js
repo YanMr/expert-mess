@@ -3,6 +3,7 @@ import ReactSimpleVerify from 'react-simple-verify'
 import 'react-simple-verify/dist/react-simple-verify.css'
 import { Form, Input, Button, Tabs, Select } from 'antd';
 import { connect } from 'react-redux';
+import { testGet } from '@/server/register';
 import { setUserInfo } from '@/redux/actions/userInfo';
 import '@/assets/css/login';
 import banner from "@/assets/img/login_banner.jpeg"
@@ -39,8 +40,9 @@ class Login extends Component {
 		};
 	}
 
-	login = e => {
+	login = async e => {
 		e.preventDefault();
+		await testGet()
 		this.formRef.current.validateFields().then((values) => {
 			localStorage.setItem('isLogin', '1');
 			// 模拟生成一些数据

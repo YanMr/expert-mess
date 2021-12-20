@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input, message } from 'antd';
+import { Button, Form, Input } from 'antd';
 import top from '../../assets/img/login_banner.jpeg';
 import './index.less';
 
