@@ -43,15 +43,34 @@ class Login extends Component {
 
 	login = async e => {
 		e.preventDefault();
-		this.formRef.current.validateFields().then((values) => {
-			localStorage.setItem('isLogin', '1');
-			// 模拟生成一些数据
-			this.props.setUserInfo(Object.assign({}, values, { role: { type: 1, name: '超级管理员' } }));
-			localStorage.setItem('userInfo', JSON.stringify(Object.assign({}, values, { role: { type: 1, name: '超级管理员' } })));
-			this.props.history.push('/dashboard');
-		}).catch((errorInfo) => {
-			console.log(errorInfo);
-		})
+		
+		// await testGet()
+		console.log('this.formRef.current', this.formRef)
+		console.log('this.formRef.current.getgetFieldsValue()', this.formRef.current.getFieldsValue())
+		let loginRes = await login(qs.stringify({
+			username: this.state.userName,
+			password: this.state.password,
+			// username: 'expert001',
+			// password: '784651',
+		}))
+		console.log('loginRes', loginRes)
+		if (loginRes.data.code === 1) {
+			localStorage.setItem('token', loginRes.data.data)
+
+			this.formRef.current.validateFields().then((values) => {
+				localStorage.setItem('isLogin', '1');
+				// 模拟生成一些数据
+				this.props.setUserInfo(Object.assign({}, values, { role: { type: 1, name: '超级管理员' } }));
+				localStorage.setItem('userInfo', JSON.stringify(Object.assign({}, values, { role: { type: 1, name: '超级管理员' } })));
+				this.props.history.push('/dashboard');
+			}).catch((errorInfo) => {
+				console.log(errorInfo);
+			})
+
+		} else {
+			message.error(`${loginRes.data.code}：${loginRes.data.msg}`)
+			return
+		}
 	};
 	componentDidMount() {
 		window.addEventListener('resize', this.onResize);
