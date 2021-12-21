@@ -166,7 +166,7 @@ class Information extends Component {
                 </Form.Item>
               </Col>
               <Col span={10}>
-                <Form.Item label="外语语种" name="langsprofi">
+                <Form.Item label="外语熟练程度" name="langsprofi">
                   <Select>
                     <Select.Option value="精通">精通</Select.Option>
                     <Select.Option value="熟练">熟练</Select.Option>
@@ -284,14 +284,13 @@ class Information extends Component {
             </Row>
 
             <Row gutter={[16, 16]}>
-              <Col span={14}>
-              </Col>
-              <Col span={3}>
+              <Col span={6}></Col>
+              <Col span={8}>
                 <Button type="primary" size="large" htmlType="submit">
                   保存信息
                 </Button>
               </Col>
-              <Col span={7}>
+              <Col span={10}>
               <Button type="primary" size="large" htmlType="submit">
                   提交审核
                 </Button>
