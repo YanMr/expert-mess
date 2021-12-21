@@ -32,6 +32,7 @@ class Register extends Component {
     switch (txt) {
       case 'email':
         this.setState({ email: e.target.value })
+        message.info('11')
         break;
       default:
         break;
@@ -168,7 +169,7 @@ class Register extends Component {
             <div className="btn">
               <FormItem>
                 <Button type="primary" size="large" htmlType="submit">
-                  修改
+                  确认修改
                 </Button>
               </FormItem>
             </div>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactSimpleVerify from 'react-simple-verify'
 import 'react-simple-verify/dist/react-simple-verify.css'
-import { Form, Input, Button, Tabs, Select } from 'antd';
+import { Form, Input, Button, Tabs, Select, message } from 'antd';
 import { connect } from 'react-redux';
-import { testGet } from '@/server/register';
+import { login } from '@/server/register';
 import { setUserInfo } from '@/redux/actions/userInfo';
 import '@/assets/css/login';
 import banner from "@/assets/img/login_banner.jpeg"
+import qs from 'qs'
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -42,16 +43,35 @@ class Login extends Component {
 
 	login = async e => {
 		e.preventDefault();
+		
 		// await testGet()
-		this.formRef.current.validateFields().then((values) => {
-			localStorage.setItem('isLogin', '1');
-			// 模拟生成一些数据
-			this.props.setUserInfo(Object.assign({}, values, { role: { type: 1, name: '超级管理员' } }));
-			localStorage.setItem('userInfo', JSON.stringify(Object.assign({}, values, { role: { type: 1, name: '超级管理员' } })));
-			this.props.history.push('/dashboard');
-		}).catch((errorInfo) => {
-			console.log(errorInfo);
-		})
+		console.log('this.formRef.current', this.formRef)
+		console.log('this.formRef.current.getgetFieldsValue()', this.formRef.current.getFieldsValue())
+		let loginRes = await login(qs.stringify({
+			username: this.state.userName,
+			password: this.state.password,
+			// username: 'expert001',
+			// password: '784651',
+		}))
+		console.log('loginRes', loginRes)
+		if (loginRes.data.code === 1) {
+			localStorage.setItem('token', loginRes.data.data)
+
+			this.formRef.current.validateFields().then((values) => {
+				localStorage.setItem('isLogin', '1');
+				// 模拟生成一些数据
+				this.props.setUserInfo(Object.assign({}, values, { role: { type: 1, name: '超级管理员' } }));
+				localStorage.setItem('userInfo', JSON.stringify(Object.assign({}, values, { role: { type: 1, name: '超级管理员' } })));
+				this.props.history.push('/dashboard');
+			}).catch((errorInfo) => {
+				console.log(errorInfo);
+			})
+
+		} else {
+			message.error(`${loginRes.data.code}：${loginRes.data.msg}`)
+			return
+		}
+	
 	};
 	componentDidMount() {
 		window.addEventListener('resize', this.onResize);
@@ -69,7 +89,11 @@ class Login extends Component {
 		this.props.history.push('/register');
 	}
 
-	forget= () => {
+	changeInfo = () => {
+		this.props.history.push('/changeInfo');
+	}
+
+	forget = () => {
 		this.props.history.push('/forgetPassword');
 	}
 
@@ -187,7 +211,7 @@ class Login extends Component {
 												name="password"
 												rules={[{ required: true, message: '请填写密码！' }]}
 											>
-												<Input placeholder="密码" onChange={this.passwordFun} />
+												<Input.Password placeholder="密码" onChange={this.passwordFun} />
 											</FormItem>
 											<FormItem>
 												<Button type="primary" disabled={!this.state.submitType} htmlType="submit" block onClick={this.login}>
@@ -233,7 +257,10 @@ class Login extends Component {
 										</Form>) : ''}
 									</TabPane>
 								</Tabs>
-								<div className="action-s" onClick={this.register}>没账号？去注册</div>
+								<div>
+									<div className="action-s" onClick={this.changeInfo}>修改账号信息</div>
+									<div className="action-s2" onClick={this.register}>没账号？去注册</div>
+								</div>
 							</div>
 						</div>
 					</div>
