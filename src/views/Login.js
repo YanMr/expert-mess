@@ -42,7 +42,7 @@ class Login extends Component {
 
 	login = async e => {
 		e.preventDefault();
-		await testGet()
+		// await testGet()
 		this.formRef.current.validateFields().then((values) => {
 			localStorage.setItem('isLogin', '1');
 			// 模拟生成一些数据

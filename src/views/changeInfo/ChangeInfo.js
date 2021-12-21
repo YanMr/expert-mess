@@ -6,10 +6,13 @@ import './index.less';
 const FormItem = Form.Item;
 
 const nameRules = { required: true, message: "请输入姓名" };
-const passwordRules = { required: true, message: "请输入密码" };
-const surepasswordRules = { required: true, message: "请输入正确密码" };
+const realnameRules = { required: true, message: "请输入真实姓名" };
+const remarkRules = { required: true, message: "请输入备注信息" };
 const phoneRules = { required: true, message: "请输入手机号" };
 const yzmRules = { required: true, message: "请输入验证码" };
+const deptRules = { required: true, message: "请输入部门" };
+const roletypeRules = { required: true, message: "请输入系统角色" };
+
 class Register extends Component {
   formRef = React.createRef();
   constructor(props) {
@@ -32,13 +35,6 @@ class Register extends Component {
         break;
       default:
         break;
-    }
-  }
-
-  surePassword() {
-    const values = this.formRef.current.getFieldsValue()
-    if (values.password !== values.surepassword) {
-      message.error("两次输入的密码不相同，请重新输入！！！")
     }
   }
 
@@ -86,13 +82,8 @@ class Register extends Component {
   }
 
   onFinish = (values) => {
-    if (values.password !== values.surepassword) {
-      message.error("两次输入的密码不相同，请重新输入！！！")
-      return
-    } else {
-      console.log('Success:', values);
-      console.log('formRef:', this.formRef);
-    }
+    console.log('Success:onFinish', values);
+    console.log('formRef:onFinish', this.formRef);
   };
 
   onFinishFailed = (errorInfo) => {
@@ -108,26 +99,41 @@ class Register extends Component {
           ref={this.formRef}
           labelCol={{ span: 5 }}
           wrapperCol={{ span: 12 }}
-          initialValues={{ remember: true }}
+          initialValues={{
+            username: 'username',
+            realname: 'realname',
+            remark: 'remark',
+            phonenumber: '180xxxxxxxx',
+            dept: '部门',
+            roletype: '系统角色'
+          }}
           onFinish={this.onFinish}
           onFinishFailed={this.onFinishFailed}
           autoComplete="off"
         >
 
           <FormItem label="用户名" name="username" rules={[nameRules]}>
-            <Input className="input" placeholder="请输入用户名" />
+            <Input className="input" disabled placeholder="请输入用户名" />
           </FormItem>
 
-          <FormItem label="密码" name="password" rules={[passwordRules]}>
-            <Input className="input" placeholder="请输入密码" />
+          <FormItem label="真实姓名" name="realname" rules={[realnameRules]}>
+            <Input className="input" placeholder="请输入真实姓名" />
           </FormItem>
 
-          <FormItem label="确认密码" name="surepassword" rules={[surepasswordRules]}>
-            <Input className="input" placeholder="请再次输入密码" onBlur={this.surePassword.bind(this)} />
+          <FormItem label="备注信息" name="remark" rules={[remarkRules]}>
+            <Input className="input" placeholder="请输入备注信息" />
           </FormItem>
 
-          <FormItem label="手机号" name="phonenumber" rules={[phoneRules]}>
-            <Input className="input" placeholder="请再次输入手机号码" />
+          <FormItem label="部门" name="dept" rules={[deptRules]}>
+            <Input className="input" disabled placeholder="请输入部门" />
+          </FormItem>
+
+          <FormItem label="系统角色" name="roletype" rules={[roletypeRules]}>
+            <Input className="input" disabled placeholder="请输入系统角色" />
+          </FormItem>
+
+          <FormItem label="联系电话" name="phonenumber" rules={[phoneRules]}>
+            <Input className="input" disabled placeholder="请联系电话" />
           </FormItem>
 
           <div className="yanzhengma">
@@ -154,7 +160,7 @@ class Register extends Component {
             <div className="btn">
               <FormItem>
                 <Button type="default" size="large" onClick={this.goLogin}>
-                  去登录
+                  返回登录
                 </Button>
               </FormItem>
             </div>
@@ -162,7 +168,7 @@ class Register extends Component {
             <div className="btn">
               <FormItem>
                 <Button type="primary" size="large" htmlType="submit">
-                  注册
+                  修改
                 </Button>
               </FormItem>
             </div>
@@ -173,9 +179,9 @@ class Register extends Component {
 
     return (
       <div>
-        <div className="box">
+        <div className="box_changeInfo">
           <div className="leftbox">
-            <div className="log">新用户注册</div>
+            <div className="log">修改信息</div>
             <div className="zhezhao"></div>
             <div className="leftimg">
               <img className="logo2"
