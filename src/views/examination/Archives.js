@@ -10,6 +10,10 @@ class Archives extends Component {
 		this.state = {
 			configureFlag: false,
 			columns: [{
+				title: '编号',
+				dataIndex: 'id',
+				key: 'id',
+			},{
 				title: '考试批次',
 				dataIndex: 'exambatch',
 				key: 'exambatch',
