@@ -22,6 +22,10 @@ export const menus = [
 				title: '扩展信息',
 			},
 			{
+				path: '/personal/cardInformation',
+				title: '证件信息',
+			},
+			{
 				path: '/personal/record',
 				title: '变更记录',
 			},

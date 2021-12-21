@@ -8,6 +8,7 @@ import ForgetPassword from '../views/forgetPassword/ForgetPassword'; // 修改�
 import ChangeInfo from '../views/changeInfo/ChangeInfo'; // 修改信息
 import PInformation from '../views/personal/Information'; // 基本信息
 import ExpandInformation from '../views/personal/ExpandInformation'; // 扩展信息
+import CardInformation from '../views/personal/CardInformation'; // 扩展信息
 import PRecord from '../views/personal/Record'; // 变更记录
 import PApply from '../views/personal/Apply'; // 续聘申请
 import PAssessment from '../views/personal/Assessment'; // 考核记录
@@ -48,6 +49,7 @@ export const routes = [
 	{ path: '/changeInfo', component: ChangeInfo },
 	{ path: '/personal/information', component: PInformation },
 	{ path: '/personal/expandInformation', component: ExpandInformation },
+	{ path: '/personal/cardInformation', component: CardInformation },
 	{ path: '/personal/record', component: PRecord },
 	{ path: '/personal/apply', component: PApply },
 	{ path: '/personal/assessment', component: PAssessment },
