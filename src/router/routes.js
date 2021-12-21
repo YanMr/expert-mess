@@ -16,7 +16,7 @@ import EInformation from '../views/expert/ArchivesInformation'; // 专家信息�
 import EMaintain from '../views/expert/Maintain'; // 专家信息维护
 import RRecruit from '../views/recruit/Recruit'; // 续聘资格配置
 import RExamine from '../views/recruit/Examine'; // 续聘信息审核
-import ExArchives from '../views/examination/Archives'; // 专家动态积分规则
+import ExArchives from '../views/examination/Archives'; // 试卷配置列表
 import EBank from '../views/examination/Bank'; // 题库管理
 import EPaper from '../views/examination/Paper'; // 阅卷管理
 import EResult from '../views/examination/Result'; // 考试结果

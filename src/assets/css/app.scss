@@ -254,3 +254,13 @@ $borderColor: #d8d8d8;
 .ant-menu-inline-collapsed > .ant-menu-item, .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
 	padding: 0 13px !important;
 }
+
+.back {
+	margin-bottom: 20px;
+	color: #1890ff;
+	cursor: pointer;
+	width: 60px;
+	span {
+		padding-left: 5px;
+	}
+}
