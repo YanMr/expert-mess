@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import top from '../../assets/img/login_banner.jpeg';
 import './index.less';
 
@@ -32,6 +32,7 @@ class Register extends Component {
     switch (txt) {
       case 'email':
         this.setState({ email: e.target.value })
+        message.info('11')
         break;
       default:
         break;
@@ -168,7 +169,7 @@ class Register extends Component {
             <div className="btn">
               <FormItem>
                 <Button type="primary" size="large" htmlType="submit">
-                  修改
+                  确认修改
                 </Button>
               </FormItem>
             </div>

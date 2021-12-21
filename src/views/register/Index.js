@@ -154,7 +154,7 @@ class Register extends Component {
             <div className="btn">
               <FormItem>
                 <Button type="default" size="large" onClick={this.goLogin}>
-                  去登录
+                  返回登录
                 </Button>
               </FormItem>
             </div>
